@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #3a4764;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.calculator {
+    width: 550px;
+    height: 600px;
+    padding: 20px;
+    border: 1px solid;
+}
+
+.calculator .headerContainer {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.calculator .headerContainer h1 {
+    font-size: 2em;
+}
+
+.calculator .headerContainer .modeContainer {
+    width: 170px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.calculator .headerContainer .modeContainer h2 {
+    font-size: 0.75em;
+}
+
+.calculator .headerContainer .modeContainer .mode {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator .headerContainer .modeContainer .mode .modeNum{
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.calculator .headerContainer .modeContainer .mode .modeNum span{
+    cursor: pointer;
+}
+.calculator .headerContainer .modeContainer .mode .modeNum .secondTheme{
+    margin: 0 10px;
+}
+
+.calculator .headerContainer .modeContainer .mode .pickMode {
+    width: 100%;
+    height: 22.5px;
+    background-color: #232c43;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.calculator .headerContainer .modeContainer .mode .pickMode .circle{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #d03f2f;
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+}
+.calculator .screen{
+    padding: 10px 20px;
+    width: 100%;
+    height: 100px;
+    margin: 20px 0;
+    color: #fff;
+    background-color: #182034;
+    font-size: 3.5em;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    overflow: hidden;
+}
+.calculator .keyPad{
+    width: 100%;
+    height: 370px;
+    background-color: #232c43;
+}

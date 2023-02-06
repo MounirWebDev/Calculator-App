@@ -2,25 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- css file -->
+  <link rel="stylesheet" href="./assets/styles/index.css">
+  <!-- js file -->
+  <script src="./assets/js/index.js" defer></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main class="calculator">
+    <header class="headerContainer">
+      <h1>calc</h1>
+      <div class="modeContainer">
+        <h2>THEME</h2>
+        <div class="mode">
+          <h5 class="modeNum">
+            <span class="firstTheme">1</span>  
+            <span class="secondTheme">2</span> 
+            <span class="thirsTheme">3</span> 
+          </h5>
+          <div class="pickMode">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="screen">
+      <div>399,981</div>
+    </div>
+    <div class="keyPad">
 
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    </div>
+  </main>
 </body>
 </html>
