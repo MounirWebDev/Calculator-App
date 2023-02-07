@@ -108,6 +108,7 @@ body {
     height: 370px;
     background-color: #232c43;
     border-radius: 5px;
+    pointer-events: none;
 }
 
 .calculator .keyPad .row {
@@ -125,10 +126,12 @@ body {
     border-radius: 5px;
     font-size: 1.5em;
     background-color: #eae3dc;
+    box-shadow: 0 3px 2px #b4a597;
     color: #444b5a;
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: all;
     cursor: pointer;
 }
 
@@ -136,10 +139,7 @@ body {
     text-transform: uppercase;
     color: #fff;
     background-color: #637097;
-}
-
-.calculator .keyPad .row .key.additonRotate span {
-    transform: rotate(46deg);
+    box-shadow: 0 3px 2px #404e72;
 }
 
 .calculator .keyPad .row .bottomKey {
@@ -158,11 +158,15 @@ body {
     color: #fff;
     text-transform: uppercase;
     background-color: #637097;
+    box-shadow: 0 3px 2px #404e72;
+    pointer-events: all;
 }
 
 .calculator .keyPad .row .quality {
     color: #fff;
     background-color: #d03f2f;
+    box-shadow: 0px 3px 2px #93261a;
+    pointer-events: all;
 }
 
 /* responsive */
