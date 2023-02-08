@@ -105,6 +105,7 @@ const CalculatorRules = (event) => {
             break;
         case '=':
             operands.push(Number(screen.innerHTML));
+            operators.push('equal');
             if (operands.length === 2) {
                 console.log(operands);
                 let result;
@@ -154,6 +155,11 @@ const CalculatorRules = (event) => {
         default:
             if (screen.innerHTML.charAt(0) === '0') {
                 screen.innerHTML = '';
+            }
+            if (operators[0] === 'equal'){
+                screen.innerHTML = '';
+                operators.pop();
+                operands.pop();
             }
             screen.innerHTML += element;
     }
