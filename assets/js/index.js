@@ -13,7 +13,56 @@ const reset = () => {
     operators.splice(0, operators.length)
     console.log(operators);
 }
-const startCalculate = (event) => {
+const startCalculate = () => {
+    if (operands.length === 2) {
+        let result;
+        const [firstNum, secondNum] = operands;
+        const [operator] = operators;
+        switch (operator) {
+            case 'addition':
+                result = firstNum + secondNum;
+                operands.splice(0, operands.length);
+                operators.shift();
+                operands.unshift(result);
+                console.log(operands);
+                console.log(operators);
+                screen.innerHTML = operands[0];
+                screen.innerHTML = '';
+                break;
+            case 'substruction':
+                result = firstNum - secondNum;
+                operands.splice(0, operands.length);
+                operators.shift();
+                operands.unshift(result);
+                console.log(operands);
+                console.log(operators);
+                screen.innerHTML = operands[0];
+                screen.innerHTML = '';
+                break;
+            case 'multiplication':
+                result = firstNum * secondNum;
+                operands.splice(0, operands.length);
+                operators.shift();
+                operands.unshift(result);
+                console.log(operands);
+                console.log(operators);
+                screen.innerHTML = operands[0];
+                screen.innerHTML = '';
+                break;
+            case 'division':
+                result = firstNum / secondNum;
+                operands.splice(0, operands.length);
+                operators.shift();
+                operands.unshift(result);
+                console.log(operands);
+                console.log(operators);
+                screen.innerHTML = operands[0];
+                screen.innerHTML = '';
+                break;
+        }
+    }
+}
+const CalculatorRules = (event) => {
     const element = event.target.innerHTML;
     switch (element.trim()) {
         case 'del':
@@ -28,6 +77,7 @@ const startCalculate = (event) => {
             operators.push('addition')
             console.log(operators);
             screen.innerHTML = ''
+            startCalculate();
             break;
         case '-':
             operands.push(Number(screen.innerHTML));
@@ -35,6 +85,7 @@ const startCalculate = (event) => {
             operators.push('substruction')
             console.log(operators);
             screen.innerHTML = '';
+            startCalculate();
             break;
         case '/':
             operands.push(Number(screen.innerHTML));
@@ -42,6 +93,7 @@ const startCalculate = (event) => {
             operators.push('division');
             console.log(operators);
             screen.innerHTML = '';
+            startCalculate();
             break;
         case '*':
             operands.push(Number(screen.innerHTML));
@@ -49,19 +101,62 @@ const startCalculate = (event) => {
             operators.push('multiplication');
             console.log(operators);
             screen.innerHTML = '';
+            startCalculate();
             break;
         case '=':
             operands.push(Number(screen.innerHTML));
-            console.log(operands);
-            console.log(operators);
-            screen.innerHTML = ''
+            if (operands.length === 2) {
+                console.log(operands);
+                let result;
+                const [firstNum, secondNum] = operands;
+                const [operator] = operators;
+                switch (operator) {
+                    case 'addition':
+                        result = firstNum + secondNum;
+                        operands.splice(0, operands.length);
+                        operators.shift();
+                        operands.unshift(result);
+                        console.log(operands);
+                        console.log(operators);
+                        screen.innerHTML = operands[0];
+                        break;
+                    case 'substruction':
+                        result = firstNum - secondNum;
+                        operands.splice(0, operands.length);
+                        operators.shift();
+                        operands.unshift(result);
+                        console.log(operands);
+                        console.log(operators);
+                        screen.innerHTML = operands[0];
+                        break;
+                    case 'multiplication':
+                        result = firstNum * secondNum;
+                        operands.splice(0, operands.length);
+                        operators.shift();
+                        operands.unshift(result);
+                        console.log(operands);
+                        console.log(operators);
+                        screen.innerHTML = operands[0];
+                        break;
+                    case 'division':
+                        result = firstNum / secondNum;
+                        operands.splice(0, operands.length);
+                        operators.shift();
+                        operands.unshift(result);
+                        console.log(operands);
+                        console.log(operators);
+                        screen.innerHTML = operands[0];
+                        break;
+                }
+            }
+
             break;
         default:
-            if(screen.innerHTML.charAt(0) === '0'){
+            if (screen.innerHTML.charAt(0) === '0') {
                 screen.innerHTML = '';
             }
             screen.innerHTML += element;
     }
 }
 
-keyPad.addEventListener('click', startCalculate)
+keyPad.addEventListener('click', CalculatorRules)

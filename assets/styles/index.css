@@ -100,7 +100,7 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
-    overflow: hidden;
+    overflow-x: auto;
 }
 
 .calculator .keyPad {
@@ -168,5 +168,3 @@ body {
     box-shadow: 0px 3px 2px #93261a;
     pointer-events: all;
 }
-
-/* responsive */
