@@ -72,36 +72,64 @@ const CalculatorRules = (event) => {
             reset()
             break;
         case '+':
-            operands.push(Number(screen.innerHTML));
-            console.log(operands);
-            operators.push('addition')
-            console.log(operators);
-            screen.innerHTML = ''
-            startCalculate();
+            if (operators[0] === 'equal') {
+                screen.innerHTML = '';
+                operators.pop();
+                operators.push('addition');
+            }
+            else {
+                operands.push(Number(screen.innerHTML));
+                console.log(operands);
+                operators.push('addition')
+                console.log(operators);
+                screen.innerHTML = ''
+                startCalculate();
+            }
             break;
         case '-':
-            operands.push(Number(screen.innerHTML));
-            console.log(operands);
-            operators.push('substruction')
-            console.log(operators);
-            screen.innerHTML = '';
-            startCalculate();
+            if (operators[0] === 'equal') {
+                screen.innerHTML = '';
+                operators.pop();
+                operators.push('substruction');
+            }
+            else {
+                operands.push(Number(screen.innerHTML));
+                console.log(operands);
+                operators.push('substruction')
+                console.log(operators);
+                screen.innerHTML = '';
+                startCalculate();
+            }
             break;
         case '/':
-            operands.push(Number(screen.innerHTML));
-            console.log(operands);
-            operators.push('division');
-            console.log(operators);
-            screen.innerHTML = '';
-            startCalculate();
+            if (operators[0] === 'equal') {
+                screen.innerHTML = '';
+                operators.pop();
+                operators.push('division');
+            }
+            else {
+                operands.push(Number(screen.innerHTML));
+                console.log(operands);
+                operators.push('division');
+                console.log(operators);
+                screen.innerHTML = '';
+                startCalculate();
+            }
             break;
         case '*':
-            operands.push(Number(screen.innerHTML));
-            console.log(operands);
-            operators.push('multiplication');
-            console.log(operators);
-            screen.innerHTML = '';
-            startCalculate();
+            if (operators[0] === 'equal') {
+                screen.innerHTML = '';
+                operators.pop();
+                operators.push('multiplication');
+            }
+            else {
+                operands.push(Number(screen.innerHTML));
+                console.log(operands);
+                operators.push('multiplication');
+                console.log(operators);
+                screen.innerHTML = '';
+                startCalculate();
+            }
             break;
         case '=':
             operands.push(Number(screen.innerHTML));
@@ -156,7 +184,7 @@ const CalculatorRules = (event) => {
             if (screen.innerHTML.charAt(0) === '0') {
                 screen.innerHTML = '';
             }
-            if (operators[0] === 'equal'){
+            if (operators[0] === 'equal') {
                 screen.innerHTML = '';
                 operators.pop();
                 operands.pop();
