@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: .1s;
 }
 
 body {
@@ -24,7 +25,7 @@ body {
 }
 
 .calculator .headerContainer {
-    color: #ffffff;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -74,7 +75,6 @@ body {
     background-color: #232c43;
     border-radius: 20px;
     position: relative;
-    cursor: pointer;
 }
 
 .calculator .headerContainer .modeContainer .mode .pickMode .circle {
