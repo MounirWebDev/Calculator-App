@@ -4,10 +4,10 @@ const operators = [];
 const screen = document.querySelector('.screen');
 const keyPad = document.querySelector('.keyPad');
 const del = () => {
-    if(operators[0] === 'equal'){
+    if (operators[0] === 'equal') {
         reset();
     }
-    else{
+    else {
         let previousVal;
         previousVal = screen.innerHTML.slice(0, screen.innerHTML.length - 1);
         screen.innerHTML = previousVal;
@@ -202,10 +202,10 @@ const CalculatorRules = (event) => {
 
 // theme
 const theme = {
-    theme1 : {
+    theme1: {
         bodyBg: 'hsl(222, 26%, 31%)',
         keyPad_toggle_bg1: ' hsl(223, 31%, 20%)',
-        screenBg : 'hsl(224, 36%, 15%)',
+        screenBg: 'hsl(224, 36%, 15%)',
         keysBg1: 'hsl(225, 21%, 49%)',
         keyShadow1: '0 3px 2px  hsl(224, 28%, 35%)',
         keyPad_toggle_bg2: 'hsl(6, 63%, 50%)',
@@ -215,10 +215,10 @@ const theme = {
         textClr1: 'hsl(221, 14%, 31%)',
         textClr2: 'hsl(0, 0%, 100%)'
     },
-    theme2 : {
+    theme2: {
         bodyBg: 'hsl(0, 0%, 90%)',
         keyPad_toggle_bg1: 'hsl(0, 5%, 81%)',
-        screenBg : 'hsl(0, 0%, 93%)',
+        screenBg: 'hsl(0, 0%, 93%)',
         keysBg1: 'hsl(185, 42%, 37%)',
         keyShadow1: '0 3px 2px hsl(185, 58%, 25%)',
         keyPad_toggle_bg2: 'hsl(25, 98%, 40%)',
@@ -231,7 +231,7 @@ const theme = {
     theme3: {
         bodyBg: 'hsl(268, 75%, 9%)',
         keyPad_toggle_bg1: 'hsl(268, 71%, 12%)',
-        screenBg : 'hsl(268, 71%, 12%)',
+        screenBg: 'hsl(268, 71%, 12%)',
         keysBg1: 'hsl(281, 89%, 26%)',
         keyShadow1: '0 3px 2px hsl(285, 91%, 52%)',
         keyPad_toggle_bg2: 'hsl(176, 100%, 44%)',
@@ -248,7 +248,7 @@ const firstTheme = document.querySelector('.firstTheme')
 const secondTheme = document.querySelector('.secondTheme')
 const thirdTheme = document.querySelector('.thirdTheme')
 
-const pickTheme = (event)=>{
+const pickTheme = (event) => {
     const body = document.body;
     const header = document.querySelector('header');
     const pickModeContainer = document.querySelector('.pickMode');
@@ -258,7 +258,7 @@ const pickTheme = (event)=>{
     const reset = document.querySelector('.reset');
     const quality = document.querySelector('.quality');
     const elementContent = event.target.innerHTML;
-    switch(elementContent){
+    switch (elementContent) {
         case '1':
             body.style.backgroundColor = theme.theme1.bodyBg;
             header.style.color = theme.theme1.textClr2;
@@ -280,7 +280,7 @@ const pickTheme = (event)=>{
             reset.style.boxShadow = theme.theme1.keyShadow1;
             quality.style.backgroundColor = theme.theme1.keyPad_toggle_bg2;
             quality.style.boxShadow = theme.theme1.keyPad_toggle_shadow;
-        break;
+            break;
         case '2':
             body.style.backgroundColor = theme.theme2.bodyBg;
             header.style.color = theme.theme2.textClr1;
@@ -302,7 +302,7 @@ const pickTheme = (event)=>{
             reset.style.boxShadow = theme.theme2.keyShadow1;
             quality.style.backgroundColor = theme.theme2.keyPad_toggle_bg2;
             quality.style.boxShadow = theme.theme2.keyPad_toggle_shadow;
-        break;
+            break;
         case '3':
             body.style.backgroundColor = theme.theme3.bodyBg;
             header.style.color = theme.theme3.textClr1;
@@ -324,7 +324,7 @@ const pickTheme = (event)=>{
             reset.style.boxShadow = theme.theme3.keyShadow1;
             quality.style.backgroundColor = theme.theme3.keyPad_toggle_bg2;
             quality.style.boxShadow = theme.theme3.keyPad_toggle_shadow;
-        break;
+            break;
     }
 }
 
