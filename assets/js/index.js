@@ -201,7 +201,8 @@ const CalculatorRules = (event) => {
 }
 
 // theme
-const theme = {
+const theme = document.querySelectorAll('theme')
+const myThemes = {
     theme1: {
         bodyBg: 'hsl(222, 26%, 31%)',
         keyPad_toggle_bg1: ' hsl(223, 31%, 20%)',
@@ -243,17 +244,12 @@ const theme = {
         textClr3: ' hsl(0, 0%, 100%)'
     }
 }
-
-const firstTheme = document.querySelector('.firstTheme')
-const secondTheme = document.querySelector('.secondTheme')
-const thirdTheme = document.querySelector('.thirdTheme')
-
 const pickTheme = (event) => {
     const body = document.body;
     const header = document.querySelector('header');
     const pickModeContainer = document.querySelector('.pickMode');
     const circleToggle = document.querySelector('.circle');
-    const key = document.querySelectorAll('.key');
+    const keyThemeDif = document.querySelector('.keyThemeDif')
     const del = document.querySelector('.del');
     const reset = document.querySelector('.reset');
     const quality = document.querySelector('.quality');
@@ -268,11 +264,16 @@ const pickTheme = (event) => {
             screen.style.backgroundColor = theme.theme1.screenBg;
             screen.style.color = theme.theme1.textClr2;
             keyPad.style.backgroundColor = theme.theme1.keyPad_toggle_bg1;
-            for (const x of key) {
-                x.style.backgroundColor = theme.theme1.keysBg2;
-                x.style.boxShadow = theme.theme1.keyShadow2;
-                x.style.color = theme.theme1.textClr1;
-            }
+            keyThemeDif.forEach(btn =>{
+                btn.style.backgroundColor = theme.theme1.keysBg2;
+                btn.style.boxShadow = theme.theme1.keyShadow2;
+                btn.style.color = theme.theme1.textClr1;
+            })
+            // for (const x of key) {
+            //     x.style.backgroundColor = theme.theme1.keysBg2;
+            //     x.style.boxShadow = theme.theme1.keyShadow2;
+            //     x.style.color = theme.theme1.textClr1;
+            // }
             del.style.backgroundColor = theme.theme1.keysBg1;
             del.style.boxShadow = theme.theme1.keyShadow1;
             del.style.color = theme.theme1.textClr2;
@@ -330,8 +331,7 @@ const pickTheme = (event) => {
 
 // calculate event
 keyPad.addEventListener('click', CalculatorRules);
-
 // theme event
-firstTheme.addEventListener('click', pickTheme);
-secondTheme.addEventListener('click', pickTheme);
-thirdTheme.addEventListener('click', pickTheme);
+theme.forEach(th =>{
+    th.addEventListener('click', pickTheme)
+})

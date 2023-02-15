@@ -75,6 +75,7 @@ body {
     background-color: #232c43;
     border-radius: 20px;
     position: relative;
+    cursor: pointer;
 }
 
 .calculator .headerContainer .modeContainer .mode .pickMode .circle {

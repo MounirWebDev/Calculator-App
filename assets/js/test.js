@@ -15,15 +15,11 @@ const calculate = {
         }
     }
 }
+
 let { firstOpd, secondOpd } = calculate.operands
 let { firstOpt, secondOpt } = calculate.operators
-// c variable for counting how many times we pressed equal
-let c = 0;
+
 const displayResult = () => {
-    if (secondOpd && c === 0) {
-        firstOpd = secondOpd
-        c++;
-    }
     firstOpd === null ? firstOpd = screen.textContent : secondOpd = screen.textContent
     switch (firstOpt) {
         case 'plus':
@@ -44,25 +40,74 @@ const displayResult = () => {
     console.log(secondOpd);
     console.log(secondOpt);
 }
+
 const handleMath = (btnContent) => {
     firstOpd === null ? firstOpd = screen.textContent : secondOpd = screen.textContent
     screen.innerHTML = ''
     switch (btnContent) {
         case '+':
-            if (firstOpt) {
+            if (firstOpt && firstOpt === 'plus') {
                 firstOpd = Number(firstOpd) + Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'minus') {
+                firstOpd = Number(firstOpd) - Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'times') {
+                firstOpd = Number(firstOpd) * Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'divide') {
+                firstOpd = Number(firstOpd) / Number(secondOpd)
                 secondOpd = null
             }
             firstOpt = 'plus'
             break;
         case '-':
-            firstOpt === null ? firstOpt = 'minus' : secondOpt = 'minus'
+            if (firstOpt && firstOpt === 'plus') {
+                firstOpd = Number(firstOpd) + Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'minus') {
+                firstOpd = Number(firstOpd) - Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'times') {
+                firstOpd = Number(firstOpd) * Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'divide') {
+                firstOpd = Number(firstOpd) / Number(secondOpd)
+                secondOpd = null
+            }
+            firstOpt = 'minus'
             break;
         case '×':
-            firstOpt === null ? firstOpt = 'times' : secondOpt = 'times'
+            if (firstOpt && firstOpt === 'plus') {
+                firstOpd = Number(firstOpd) + Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'minus') {
+                firstOpd = Number(firstOpd) - Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'times') {
+                firstOpd = Number(firstOpd) * Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'divide') {
+                firstOpd = Number(firstOpd) / Number(secondOpd)
+                secondOpd = null
+            }
+            firstOpt = 'times'
             break;
         case '÷':
-            firstOpt === null ? firstOpt = 'divide' : secondOpt = 'divide'
+            if (firstOpt && firstOpt === 'plus') {
+                firstOpd = Number(firstOpd) + Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'minus') {
+                firstOpd = Number(firstOpd) - Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'times') {
+                firstOpd = Number(firstOpd) * Number(secondOpd)
+                secondOpd = null
+            } else if (firstOpt && firstOpt === 'divide') {
+                firstOpd = Number(firstOpd) / Number(secondOpd)
+                secondOpd = null
+            }
+            firstOpt = 'divide'
             break;
     }
     console.log(firstOpd);
@@ -120,12 +165,223 @@ const handleSymbol = (btnContent) => {
             break;
     }
 }
+// theme
+const toggle = document.querySelector('.pickMode')
+const myTheme = document.querySelectorAll('.theme')
+const theme = {
+    theme1: {
+        bodyBg: 'hsl(222, 26%, 31%)',
+        keyPad_toggle_bg1: ' hsl(223, 31%, 20%)',
+        screenBg: 'hsl(224, 36%, 15%)',
+        keysBg1: 'hsl(225, 21%, 49%)',
+        keyShadow1: '0 3px 2px  hsl(224, 28%, 35%)',
+        keyPad_toggle_bg2: 'hsl(6, 63%, 50%)',
+        keyPad_toggle_shadow: '0 3px 2px hsl(6, 70%, 34%)',
+        keysBg2: 'hsl(30, 25%, 89%)',
+        keyShadow2: '0 3px 2px hsl(28, 16%, 65%)',
+        textClr1: 'hsl(221, 14%, 31%)',
+        textClr2: 'hsl(0, 0%, 100%)'
+    },
+    theme2: {
+        bodyBg: 'hsl(0, 0%, 90%)',
+        keyPad_toggle_bg1: 'hsl(0, 5%, 81%)',
+        screenBg: 'hsl(0, 0%, 93%)',
+        keysBg1: 'hsl(185, 42%, 37%)',
+        keyShadow1: '0 3px 2px hsl(185, 58%, 25%)',
+        keyPad_toggle_bg2: 'hsl(25, 98%, 40%)',
+        keyPad_toggle_shadow: '0 3px 2px hsl(hsl(25, 99%, 27%)',
+        keysBg2: 'hsl(45, 7%, 89%)',
+        keyShadow2: '0 3px 2px hsl(35, 11%, 61%)',
+        textClr1: 'hsl(60, 10%, 19%)',
+        textClr2: 'hsl(0, 0%, 100%)'
+    },
+    theme3: {
+        bodyBg: 'hsl(268, 75%, 9%)',
+        keyPad_toggle_bg1: 'hsl(268, 71%, 12%)',
+        screenBg: 'hsl(268, 71%, 12%)',
+        keysBg1: 'hsl(281, 89%, 26%)',
+        keyShadow1: '0 3px 2px hsl(285, 91%, 52%)',
+        keyPad_toggle_bg2: 'hsl(176, 100%, 44%)',
+        keyPad_toggle_shadow: '0 3px 2px hsl(177, 92%, 70%)',
+        keysBg2: 'hsl(268, 47%, 21%)',
+        keyShadow2: '0 3px 2px hsl(290, 70%, 36%)',
+        textClr1: ' hsl(52, 100%, 62%)',
+        textClr2: ' hsl(198, 20%, 13%)',
+        textClr3: ' hsl(0, 0%, 100%)'
+    }
+}
+const pickTheme = (th) => {
+    const body = document.body;
+    const header = document.querySelector('header');
+    const circleToggle = document.querySelector('.circle');
+    const keyPad = document.querySelector('.keyPad');
+    const del = document.querySelector('.del');
+    const reset = document.querySelector('.reset');
+    const quality = document.querySelector('.quality');
+    const elementContent = th.target.textContent;
+    switch (elementContent) {
+        case '1':
+            body.style.backgroundColor = theme.theme1.bodyBg;
+            header.style.color = theme.theme1.textClr2;
+            toggle.style.backgroundColor = theme.theme1.keyPad_toggle_bg1;
+            circleToggle.style.backgroundColor = theme.theme1.keyPad_toggle_bg2;
+            circleToggle.style.left = "3px";
+            screen.style.backgroundColor = theme.theme1.screenBg;
+            screen.style.color = theme.theme1.textClr2;
+            keyPad.style.backgroundColor = theme.theme1.keyPad_toggle_bg1;
+            for (const x of key) {
+                x.style.backgroundColor = theme.theme1.keysBg2;
+                x.style.boxShadow = theme.theme1.keyShadow2;
+                x.style.color = theme.theme1.textClr1;
+            }
+            del.style.backgroundColor = theme.theme1.keysBg1;
+            del.style.boxShadow = theme.theme1.keyShadow1;
+            del.style.color = theme.theme1.textClr2;
+            reset.style.backgroundColor = theme.theme1.keysBg1;
+            reset.style.boxShadow = theme.theme1.keyShadow1;
+            reset.style.color = theme.theme1.textClr2;
+            quality.style.backgroundColor = theme.theme1.keyPad_toggle_bg2;
+            quality.style.boxShadow = theme.theme1.keyPad_toggle_shadow;
+            quality.style.color = theme.theme1.textClr2;
+            break;
+        case '2':
+            body.style.backgroundColor = theme.theme2.bodyBg;
+            header.style.color = theme.theme2.textClr1;
+            toggle.style.backgroundColor = theme.theme2.keyPad_toggle_bg1;
+            circleToggle.style.backgroundColor = theme.theme2.keyPad_toggle_bg2;
+            circleToggle.style.left = "22px";
+            screen.style.backgroundColor = theme.theme2.screenBg;
+            screen.style.color = theme.theme2.textClr1;
+            keyPad.style.backgroundColor = theme.theme2.keyPad_toggle_bg1;
+            for (const x of key) {
+                x.style.backgroundColor = theme.theme2.keysBg2;
+                x.style.boxShadow = theme.theme2.keyShadow2;
+                x.style.color = theme.theme2.textClr1;
+            }
+            del.style.backgroundColor = theme.theme2.keysBg1;
+            del.style.boxShadow = theme.theme2.keyShadow1;
+            del.style.color = theme.theme2.textClr2;
+            reset.style.backgroundColor = theme.theme2.keysBg1;
+            reset.style.boxShadow = theme.theme2.keyShadow1;
+            reset.style.color = theme.theme2.textClr2;
+            quality.style.backgroundColor = theme.theme2.keyPad_toggle_bg2;
+            quality.style.boxShadow = theme.theme2.keyPad_toggle_shadow;
+            quality.style.color = theme.theme2.textClr2;
+            break;
+        case '3':
+            body.style.backgroundColor = theme.theme3.bodyBg;
+            header.style.color = theme.theme3.textClr1;
+            toggle.style.backgroundColor = theme.theme3.keyPad_toggle_bg1;
+            circleToggle.style.backgroundColor = theme.theme3.keyPad_toggle_bg2;
+            circleToggle.style.left = "40px";
+            screen.style.backgroundColor = theme.theme3.screenBg;
+            screen.style.color = theme.theme3.textClr1;
+            keyPad.style.backgroundColor = theme.theme3.keyPad_toggle_bg1;
+            for (const x of key) {
+                x.style.backgroundColor = theme.theme3.keysBg2;
+                x.style.boxShadow = theme.theme3.keyShadow2;
+                x.style.color = theme.theme3.textClr1;
+            }
+            del.style.backgroundColor = theme.theme3.keysBg1;
+            del.style.boxShadow = theme.theme3.keyShadow1;
+            del.style.color = theme.theme3.textClr3;
+            reset.style.backgroundColor = theme.theme3.keysBg1;
+            reset.style.boxShadow = theme.theme3.keyShadow1;
+            quality.style.backgroundColor = theme.theme3.keyPad_toggle_bg2;
+            quality.style.boxShadow = theme.theme3.keyPad_toggle_shadow;
+            break;
+    }
+}
 
+// initilazing the value of the screen
 screen.innerHTML = '0';
+// calculate event
 key.forEach((btn) => {
     btn.addEventListener('click', () => {
         let btnContent = btn.textContent
 
         isFinite(btnContent) ? displayScreen(btnContent) : handleSymbol(btnContent);
     })
+})
+// theme event
+myTheme.forEach(th =>{
+    th.addEventListener('click',pickTheme)
+})
+toggle.addEventListener('click', (event)=>{
+    const body = document.body;
+    const header = document.querySelector('header');
+    const circleToggle = document.querySelector('.circle');
+    const keyPad = document.querySelector('.keyPad');
+    const del = document.querySelector('.del');
+    const reset = document.querySelector('.reset');
+    const quality = document.querySelector('.quality');
+    let x = event.offsetX
+    if(x <= 17){
+        body.style.backgroundColor = theme.theme1.bodyBg;
+        header.style.color = theme.theme1.textClr2;
+        toggle.style.backgroundColor = theme.theme1.keyPad_toggle_bg1;
+        circleToggle.style.backgroundColor = theme.theme1.keyPad_toggle_bg2;
+        circleToggle.style.left = "3px";
+        screen.style.backgroundColor = theme.theme1.screenBg;
+        screen.style.color = theme.theme1.textClr2;
+        keyPad.style.backgroundColor = theme.theme1.keyPad_toggle_bg1;
+        for (const x of key) {
+            x.style.backgroundColor = theme.theme1.keysBg2;
+            x.style.boxShadow = theme.theme1.keyShadow2;
+            x.style.color = theme.theme1.textClr1;
+        }
+        del.style.backgroundColor = theme.theme1.keysBg1;
+        del.style.boxShadow = theme.theme1.keyShadow1;
+        del.style.color = theme.theme1.textClr2;
+        reset.style.backgroundColor = theme.theme1.keysBg1;
+        reset.style.boxShadow = theme.theme1.keyShadow1;
+        reset.style.color = theme.theme1.textClr2;
+        quality.style.backgroundColor = theme.theme1.keyPad_toggle_bg2;
+        quality.style.boxShadow = theme.theme1.keyPad_toggle_shadow;
+        quality.style.color = theme.theme1.textClr2;
+    }else if(x >= 38){
+        body.style.backgroundColor = theme.theme3.bodyBg;
+        header.style.color = theme.theme3.textClr1;
+        toggle.style.backgroundColor = theme.theme3.keyPad_toggle_bg1;
+        circleToggle.style.backgroundColor = theme.theme3.keyPad_toggle_bg2;
+        circleToggle.style.left = "40px";
+        screen.style.backgroundColor = theme.theme3.screenBg;
+        screen.style.color = theme.theme3.textClr1;
+        keyPad.style.backgroundColor = theme.theme3.keyPad_toggle_bg1;
+        for (const x of key) {
+            x.style.backgroundColor = theme.theme3.keysBg2;
+            x.style.boxShadow = theme.theme3.keyShadow2;
+            x.style.color = theme.theme3.textClr1;
+        }
+        del.style.backgroundColor = theme.theme3.keysBg1;
+        del.style.boxShadow = theme.theme3.keyShadow1;
+        del.style.color = theme.theme3.textClr3;
+        reset.style.backgroundColor = theme.theme3.keysBg1;
+        reset.style.boxShadow = theme.theme3.keyShadow1;
+        quality.style.backgroundColor = theme.theme3.keyPad_toggle_bg2;
+        quality.style.boxShadow = theme.theme3.keyPad_toggle_shadow;
+    }else{
+        body.style.backgroundColor = theme.theme2.bodyBg;
+        header.style.color = theme.theme2.textClr1;
+        toggle.style.backgroundColor = theme.theme2.keyPad_toggle_bg1;
+        circleToggle.style.backgroundColor = theme.theme2.keyPad_toggle_bg2;
+        circleToggle.style.left = "22px";
+        screen.style.backgroundColor = theme.theme2.screenBg;
+        screen.style.color = theme.theme2.textClr1;
+        keyPad.style.backgroundColor = theme.theme2.keyPad_toggle_bg1;
+        for (const x of key) {
+            x.style.backgroundColor = theme.theme2.keysBg2;
+            x.style.boxShadow = theme.theme2.keyShadow2;
+            x.style.color = theme.theme2.textClr1;
+        }
+        del.style.backgroundColor = theme.theme2.keysBg1;
+        del.style.boxShadow = theme.theme2.keyShadow1;
+        del.style.color = theme.theme2.textClr2;
+        reset.style.backgroundColor = theme.theme2.keysBg1;
+        reset.style.boxShadow = theme.theme2.keyShadow1;
+        reset.style.color = theme.theme2.textClr2;
+        quality.style.backgroundColor = theme.theme2.keyPad_toggle_bg2;
+        quality.style.boxShadow = theme.theme2.keyPad_toggle_shadow;
+        quality.style.color = theme.theme2.textClr2;
+    }
 })
