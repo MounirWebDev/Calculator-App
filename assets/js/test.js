@@ -18,7 +18,6 @@ const calculate = {
 
 let { firstOpd, secondOpd } = calculate.operands
 let { firstOpt, secondOpt } = calculate.operators
-
 const displayResult = () => {
     firstOpd === null ? firstOpd = screen.textContent : secondOpd = screen.textContent
     switch (firstOpt) {
@@ -35,6 +34,7 @@ const displayResult = () => {
             screen.innerHTML = Number(firstOpd) / Number(secondOpd)
             break;
     }
+    firstOpd = secondOpd = firstOpt = null
     console.log(firstOpd);
     console.log(firstOpt);
     console.log(secondOpd);
@@ -304,10 +304,10 @@ key.forEach((btn) => {
     })
 })
 // theme event
-myTheme.forEach(th =>{
-    th.addEventListener('click',pickTheme)
+myTheme.forEach(th => {
+    th.addEventListener('click', pickTheme)
 })
-toggle.addEventListener('click', (event)=>{
+toggle.addEventListener('click', (event) => {
     const body = document.body;
     const header = document.querySelector('header');
     const circleToggle = document.querySelector('.circle');
@@ -316,7 +316,7 @@ toggle.addEventListener('click', (event)=>{
     const reset = document.querySelector('.reset');
     const quality = document.querySelector('.quality');
     let x = event.offsetX
-    if(x <= 17){
+    if (x <= 17) {
         body.style.backgroundColor = theme.theme1.bodyBg;
         header.style.color = theme.theme1.textClr2;
         toggle.style.backgroundColor = theme.theme1.keyPad_toggle_bg1;
@@ -339,7 +339,7 @@ toggle.addEventListener('click', (event)=>{
         quality.style.backgroundColor = theme.theme1.keyPad_toggle_bg2;
         quality.style.boxShadow = theme.theme1.keyPad_toggle_shadow;
         quality.style.color = theme.theme1.textClr2;
-    }else if(x >= 38){
+    } else if (x >= 38) {
         body.style.backgroundColor = theme.theme3.bodyBg;
         header.style.color = theme.theme3.textClr1;
         toggle.style.backgroundColor = theme.theme3.keyPad_toggle_bg1;
@@ -360,7 +360,7 @@ toggle.addEventListener('click', (event)=>{
         reset.style.boxShadow = theme.theme3.keyShadow1;
         quality.style.backgroundColor = theme.theme3.keyPad_toggle_bg2;
         quality.style.boxShadow = theme.theme3.keyPad_toggle_shadow;
-    }else{
+    } else {
         body.style.backgroundColor = theme.theme2.bodyBg;
         header.style.color = theme.theme2.textClr1;
         toggle.style.backgroundColor = theme.theme2.keyPad_toggle_bg1;
@@ -385,3 +385,9 @@ toggle.addEventListener('click', (event)=>{
         quality.style.color = theme.theme2.textClr2;
     }
 })
+
+
+
+
+// the priroty between the opts
+// create a function for the all the theme num
