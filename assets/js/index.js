@@ -37,6 +37,9 @@ const calculate = {
                     }
                     break;
             }
+            if(screen.textContent === 'NaN'){
+                screen.innerHTML = 'Error!';
+            }
             firstOpd = secondOpd = firstOpt = null
         }
     }
